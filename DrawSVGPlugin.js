@@ -307,5 +307,9 @@
 	exports.default = DrawSVGPlugin;
 
 	Object.defineProperty(exports, '__esModule', { value: true });
+	
+	window.DrawSVGPlugin = DrawSVGPlugin;
+	gsap.registerPlugin(DrawSVGPlugin);
+	
 
 })));
