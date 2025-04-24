@@ -304,12 +304,14 @@
 	_getGSAP() && gsap.registerPlugin(DrawSVGPlugin);
 
 	exports.DrawSVGPlugin = DrawSVGPlugin;
-	exports.default = DrawSVGPlugin;
+exports.default = DrawSVGPlugin;
 
-	Object.defineProperty(exports, '__esModule', { value: true });
-	
-	window.DrawSVGPlugin = DrawSVGPlugin;
-	gsap.registerPlugin(DrawSVGPlugin);
-	
+Object.defineProperty(exports, '__esModule', { value: true });
+
+// ✅ THIS BLOCK IS CRUCIAL:
+if (typeof window !== 'undefined' && window.gsap) {
+  window.DrawSVGPlugin = DrawSVGPlugin;
+  window.gsap.registerPlugin(DrawSVGPlugin);
+}
 
 })));
